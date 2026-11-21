@@ -20,12 +20,12 @@
       <div class="spinner"></div>
     </div>
     <!-- ======== Preloader =========== -->
-      <!-- ========== signin-section start ========== -->
-      <section class="signin-section">
-        <div class="container-fluid">
-          <div class="row g-0 auth-row">
+    <!-- ========== signin-section start ========== -->
+    <section class="signin-section p-0 m-0">
+      <div class="container-fluid px-0">
+          <div class="row g-0 auth-row min-vh-100">
             <div class="col-lg-6">
-              <div class="auth-cover-wrapper bg-primary-100">
+              <div class="auth-cover-wrapper bg-primary-100 h-100">
                 <div class="auth-cover">
                   <div class="title text-center">
                     <h1 class="text-primary mb-10">Welcome Back</h1>
@@ -51,19 +51,26 @@
                     Start creating the best possible user experience for you
                     customers.
                   </p>
-                  <form action="">
+
+                  <form method="POST" action="<?= base_url('login') ?>">
                     <div class="row">
                       <div class="col-12">
                         <div class="input-style-1">
                           <label>Username</label>
-                          <input type="text" placeholder="Username" name="username" />
+                          <input type="text" class="<?= ($validation->hasError('username')) ? 'is-invalid' : '' ?> form-control" placeholder="Username" name="username" />
+                          <div class="invalid-feedback">
+                            <?= $validation->getError('username') ?>
+                          </div>
                         </div>
                       </div>
                       <!-- end col -->
                       <div class="col-12">
                         <div class="input-style-1">
                           <label>Password</label>
-                          <input type="password" placeholder="Password" name="password" />
+                          <input type="password" class="<?= ($validation->hasError('password')) ? 'is-invalid' : '' ?> form-control" placeholder="Password" name="password" />
+                          <div class="invalid-feedback">
+                            <?= $validation->getError('password') ?>
+                          </div>
                         </div>
                       </div>
                       <div class="col-12">
@@ -82,9 +89,9 @@
             <!-- end col -->
           </div>
           <!-- end row -->
-        </div>
-      </section>
-      <!-- ========== signin-section end ========== -->
+        </div> 
+    </section>
+    <!-- ========== signin-section end ========== -->
 
     <!-- ========= All Javascript files linkup ======== -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>

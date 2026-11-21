@@ -22,5 +22,10 @@ class Login extends BaseController
             'password' => 'required'
         ];
 
+        if (!$this->validate($rules)) {
+            $data['validation'] = $this->validator;
+            return view('login', $data);
+        } else {
+        }
     }
 }
