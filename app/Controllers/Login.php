@@ -32,6 +32,29 @@ class Login extends BaseController
 
             $username = $this->request->getVar('username');
             $password = $this->request->getVar('password');
+            $cekusername = $loginmodel->where('username', $username)->first();
+
+            if ($cekusername) {
+                $password_db = $cekusername['password'];
+                $cek_password = password_verify($password, $password_db);
+                if ($cek_password) {
+                    switch($cekusername['role']) {
+                        case "Admin":
+                            return redirect()->to('admin/home');
+                        case "Pegawai":
+                            return redirect()->to('pegawai/home');
+                        default:
+                            $session->setFlashdata('pesan', 'Akun Anda belum terdaftar');
+                            return redirect()->to('/');
+                    }
+                } else {
+                    $session->setFlashdata('pesan', 'Password salah, silahkan coba lagi');
+                    return redirect()->to('/');
+                }
+            } else {
+                $session->setFlashdata('pesan', 'Username salah, silahkan coba lagi');
+                return redirect()->to('/');
+            }
         }
     }
 }

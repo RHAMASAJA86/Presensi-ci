@@ -8,11 +8,8 @@
     <title>Sign In | PlainAdmin Demo</title>
 
     <!-- ========== All CSS files linkup ========= -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/lineicons.css" />
-    <link rel="stylesheet" href="assets/css/materialdesignicons.min.css" />
-    <link rel="stylesheet" href="assets/css/fullcalendar.css" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href=" <?= base_url('assets/css/bootstrap.min.css')?> " />
+    <link rel="stylesheet" href=" <?= base_url('assets/css/main.css')?> " />
   </head>
   <body>
     <!-- ======== Preloader =========== -->
@@ -34,10 +31,10 @@
                     </p>
                   </div>
                   <div class="cover-image">
-                    <img src="assets/images/auth/signin-image.svg" alt="" />
+                    <img src="<?= base_url('assets/images/auth/signin-image.svg') ?>" alt="" />
                   </div>
                   <div class="shape-image">
-                    <img src="assets/images/auth/shape.svg" alt="" />
+                    <img src="<?= base_url('assets/images/auth/shape.svg') ?>" alt="" />
                   </div>
                 </div>
               </div>
@@ -51,6 +48,13 @@
                     Start creating the best possible user experience for you
                     customers.
                   </p>
+
+                  <?php if(!empty(session()->getFlashdata('pesan'))) : ?>
+                  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <?= session()->getFlashdata('pesan') ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                  <?php endif; ?>
 
                   <form method="POST" action="<?= base_url('login') ?>">
                     <div class="row">
@@ -94,14 +98,7 @@
     <!-- ========== signin-section end ========== -->
 
     <!-- ========= All Javascript files linkup ======== -->
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/Chart.min.js"></script>
-    <script src="assets/js/dynamic-pie-chart.js"></script>
-    <script src="assets/js/moment.min.js"></script>
-    <script src="assets/js/fullcalendar.js"></script>
-    <script src="assets/js/jvectormap.min.js"></script>
-    <script src="assets/js/world-merc.js"></script>
-    <script src="assets/js/polyfill.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="<?= base_url('assets/js/bootstrap.bundle.min.js') ?>"></script>
+    <script src="<?= base_url('assets/js/main.js') ?>"></script>
   </body>
 </html>
