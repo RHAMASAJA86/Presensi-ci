@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\LoginModel;
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
 
@@ -26,6 +27,11 @@ class Login extends BaseController
             $data['validation'] = $this->validator;
             return view('login', $data);
         } else {
+            $session = session();
+            $loginmodel = new LoginModel;
+
+            $username = $this->request->getVar('username');
+            $password = $this->request->getVar('password');
         }
     }
 }
