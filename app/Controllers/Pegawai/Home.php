@@ -9,6 +9,9 @@ class Home extends BaseController
 {
     public function index()
     {
-        echo session()->get('role_id');
+        $data = [
+            'title' => 'Dashboard'
+        ];
+        return view('pegawai/home', $data);
     }
 }

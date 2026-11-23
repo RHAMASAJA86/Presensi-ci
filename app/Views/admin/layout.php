@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon" />
-    <title><?= $title ?></title>
+    <title>Blank Page | PlainAdmin Demo</title>
 
     <!-- ========== All CSS files linkup ========= -->
     <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css') ?>" />
@@ -28,7 +28,7 @@
     <aside class="sidebar-nav-wrapper">
       <div class="navbar-logo">
         <a href="index.html">
-          <img style="width: 130px; height: auto; margin-left: 20px; margin-top: -15px;" src="assets/images/logo/Logo-PresensiCI.PNG" alt="logo" />
+          <img style="width: 130px; height: auto; margin-left: 20px; margin-top: -15px;" src="<?= base_url('assets/images/logo/Logo-PresensiCI.PNG') ?>" alt="logo" />
         </a>
       </div>
       <nav class="sidebar-nav mb-2 ">
@@ -117,11 +117,11 @@
                     <div class="profile-info">
                       <div class="info">
                         <div class="image">
-                          <img src="assets/images/profile/profile-image.png" alt="" />
+                          <img src="<?= base_url('assets/images/profile/profile-image.png') ?>" alt="" />
                         </div>
                         <div>
-                          <h6 class="fw-500 text-uppercase"><?= session()->get('username')?></h6>
-                          <p><?= session()->get('role_id')?></p>
+                          <h6 class="fw-500"><?= session()->get('username') ?></h6>
+                          <p><?= session()->get('role_id') ?></p>
                         </div>
                       </div>
                     </div>
@@ -130,7 +130,7 @@
                     <li>
                       <div class="author-info flex items-center !p-1">
                         <div class="image">
-                          <img src="assets/images/profile/profile-image.png" alt="image">
+                          <img src="<?= base_url('assets/images/profile/profile-image.png') ?>" alt="image">
                         </div>
                         <div class="content">
                           <h4 class="text-sm">Adam Joe</h4>
@@ -178,7 +178,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title">
-                  <h2><?= $title ?></h2>
+                  <h2>Title</h2>
                 </div>
               </div>
 
