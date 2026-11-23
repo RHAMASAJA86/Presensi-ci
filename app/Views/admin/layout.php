@@ -120,8 +120,8 @@
                           <img src="assets/images/profile/profile-image.png" alt="" />
                         </div>
                         <div>
-                          <h6 class="fw-500">Adam Joe</h6>
-                          <p>Admin</p>
+                          <h6 class="fw-500 text-uppercase"><?= session()->get('username')?></h6>
+                          <p><?= session()->get('role_id')?></p>
                         </div>
                       </div>
                     </div>
