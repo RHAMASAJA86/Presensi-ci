@@ -9,7 +9,7 @@
             </div>
             <div class="content">
                 <h6 class="mb-10">Total Pegawai</h6>
-                <h3 class="text-bold mb-10">0</h3>>
+                <h3 class="text-bold mb-10">0</h3>
             </div>
         </div>
         <!-- End Icon Cart -->
