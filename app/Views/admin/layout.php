@@ -16,6 +16,9 @@
 
     <!-- ========== Tabler ICON ========= -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.52.0/tabler-icons.min.css" integrity="sha512-kxe1wzt8v4jfgaaE90BSLDiSLRCM/9DX4xpqSNEOYZxvQhOllZCxnE6qYqDhVCB4ypl+LWnWqdT3jq80H4YZ+g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <!-- ========== sweetalert ========= -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/3.1.6/css/dataTables.dataTables.css" />
   </head>
   <body>
     <!-- ======== Preloader =========== -->
@@ -201,7 +204,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title">
-                  <h2>Title</h2>
+                  <h2><?= $title ?></h2>
                 </div>
               </div>
 
@@ -253,5 +256,63 @@
     <script src="<?= base_url('assets/js/jvectormap.min.js') ?>"></script>
     <script src="<?= base_url('assets/js/polyfill.js') ?>"></script>
     <script src="<?= base_url('assets/js/main.js') ?>"></script>
+
+    <!-- ===== jquery ====== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/4.1.0/jquery.min.js" integrity="sha512-LAwtVcZXPhBWVFQr9JK27ozsjKIZWJ6Y811gxInOV82L55pvK12upCcTye8dhlVJ5iIllnd4LO0zq9Ue80vxbQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- ===== datatables ====== -->
+    <script src="https://cdn.datatables.net/3.1.6/js/dataTables.js"></script>
+
+    <!-- ===== sweetalert ====== -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+      // datatebles
+      $(document).ready(function () {
+        $('#datatables').DataTable();
+      });
+      
+      // sweetalert berhasil
+      $(function() {
+        <?php if(session()-> has('berhasil')) { ?>
+        Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+        }).fire({
+          icon: "success",
+          title: "<?= $_SESSION['berhasil']?>"
+        });
+        <?php } ?>
+      });
+
+      // sweetalert konfirmasi hapus
+      $('.tombol-hapus').on('click', function() {
+        var getLink = $(this).attr('href');
+        Swal.fire({
+          title: "yakin hapus?",
+          text: "Data yang sudah dihapus tidak bisa dikembalikan!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = getLink
+            // title: "Deleted!",
+            // text: "Your file has been deleted.",
+            // icon: "success"
+          }
+        });        
+        return false;  
+      });
+    </script>
   </body>
 </html>

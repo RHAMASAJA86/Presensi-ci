@@ -155,7 +155,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title">
-                  <h2>Title</h2>
+                  <h2><?= $title ?></h2>
                 </div>
               </div>
 
