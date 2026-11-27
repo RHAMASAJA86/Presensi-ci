@@ -23,7 +23,6 @@ $routes->get('admin/lokasi_presensi/edit/(:segment)', 'Admin\LokasiPresensi::edi
 $routes->post('admin/lokasi_presensi/update/(:segment)', 'Admin\LokasiPresensi::update/$1', ['filter' => 'adminFilter']);
 $routes->get('admin/lokasi_presensi/delete/(:segment)', 'Admin\LokasiPresensi::delete/$1', ['filter' => 'adminFilter']);
 $routes->get('admin/lokasi_presensi/detail/(:segment)', 'Admin\LokasiPresensi::detail/$1', ['filter' => 'adminFilter']);
-
 // CRUD Data Pegawai
 $routes->get('admin/data_pegawai', 'Admin\DataPegawai::index', ['filter' => 'adminFilter']);
 $routes->get('admin/data_pegawai/create', 'Admin\DataPegawai::create', ['filter' => 'adminFilter']);
